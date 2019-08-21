@@ -1,0 +1,14 @@
+/* Set timer
+    On button click 
+     show questions
+     start timer
+     Radio buttons on input capture answers
+      only one answer
+     Click Done button to also stop timer and show final page
+    when timer ends 
+     change page to hide questions
+     show final page
+     count correct answers
+     incorrect answers
+     unanswered questions
+     */
