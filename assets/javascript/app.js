@@ -17,7 +17,7 @@ var intervalId;
 
 // prevents the clock from being sped up unnecessarily
 var clockRunning = false;
-var time = 11;
+var time = 61;
 
 var correctAnswers = 0;
 var wrongAnswers = 5;
@@ -29,7 +29,9 @@ var questions = [
      wrong:["wrong1.1", "wrong1.2", "wrong1.3"]
     },
     {question:"Q2?",
-     answer:"Answr2"
+     answer:"Answr2",
+     wrong:["wrong2.1", "wrong2.2", "wrong2.3"]
+
     }
 ]
 
@@ -107,11 +109,12 @@ function count() {
     //NEED: show questions
     for (var i = 0; i < questions.length; i++) {
 
-        
-        //$("#questions").append("<form>");
-        $("#questions").append("<p id='q" + i + "1'>" + questions[i].question + "</p>");
-        $("#questions").append("<input type='radio' name='radio-answer' onclick='compareAnswer(this.value, " + i + ")' value=" + questions[i].answer + ">" + questions[i].answer);
-
+        var form = $("<form>");
+        form.attr("id", "question-form");
+        $("#questions").append(form);
+        $("#question-form").append("<p id='q" + i + "1'>" + questions[i].question + "</p>");
+        $("#question-form").append("<input type='radio' name='radio-answer" + i + "' onclick='compareAnswer(this.value, " + i + ")' value=" + questions[i].answer + ">" + questions[i].answer);
+        $("#question-form").append("<input type='radio' name='radio-answer" + i + "' onclick='compareAnswer(this.value, " + i + ")' value=" + questions[i].wrong[i] + ">" + questions[i].wrong[i]);
 
     }
 
