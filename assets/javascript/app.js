@@ -23,6 +23,16 @@ var correctAnswers = 0;
 var wrongAnswers = 5;
 var unanswered = 5;
 
+var questions = [
+    {question:"Q1?",
+     answer:"Answ1",
+     wrong:["wrong1.1", "wrong1.2", "wrong1.3"]
+    },
+    {question:"Q2?",
+     answer:"Answr2"
+    }
+]
+
 
 $("#startBtn").on("click", function () {
     $("#startBtn").hide();
@@ -95,6 +105,16 @@ function count() {
     $("#time-remaining").text("Time remaining: " + time + " Seconds");
 
     //NEED: show questions
+    for (var i = 0; i < questions.length; i++) {
+
+        
+        //$("#questions").append("<form>");
+        $("#questions").append("<p id='q" + i + "1'>" + questions[i].question + "</p>");
+        $("#questions").append("<input type='radio' name='radio-answer' onclick='compareAnswer(this.value, " + i + ")' value=" + questions[i].answer + ">" + questions[i].answer);
+
+
+    }
+
 
     startClock();
 
@@ -119,5 +139,17 @@ function count() {
     $("#unanswered").text("Unanswered: " + unanswered);
 
   }
+
+  function compareAnswer(answer, i) {
+    if (answer === questions[i].answer) {
+        correctAnswers++;
+        wrongAnswers--;
+        unanswered--;
+    }
+    else {
+        unanswered--;
+    }
+}
+
   
   
