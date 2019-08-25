@@ -17,7 +17,7 @@ var intervalId;
 
 // prevents the clock from being sped up unnecessarily
 var clockRunning = false;
-var time = 65;
+var time = 11;
 
 var correctAnswers = 0;
 var wrongAnswers = 5;
@@ -33,7 +33,7 @@ $("#startBtn").on("click", function () {
     //startClock();
 
     //add a done button. hover with border?
-    $("#questions").append("<button id='doneBtn'> Done! </button>");
+
 
 });
 
@@ -55,10 +55,6 @@ function count() {
     if (time < 0) {
         //call finalPage() after clock has shown 0 and don't show -:01.
         finalPage();
-
-        //stop clock so it doesn't keep running in background
-        clearInterval(intervalId);
-        clockRunning = false;
     }
   
     // Get the current time, pass that into the timeConverter function,
@@ -97,13 +93,25 @@ function count() {
 
   function showQuestions() {
     $("#time-remaining").text("Time remaining: " + time + " Seconds");
-    //show questions
+
+    //NEED: show questions
 
     startClock();
+
+    $("#questions").append("<button id='doneBtn'> Done! </button>");
+    $("#doneBtn").on("click", function () {
+        finalPage();
+
+    });
 
   }
 
   function finalPage() {
+
+    //stop clock so it doesn't keep running in background
+    clearInterval(intervalId);
+    clockRunning = false;
+
     $("#questions").hide();
     $("#done-message").text("All done!");
     $("#correct").text("Correct answers: " + correctAnswers);
