@@ -147,7 +147,7 @@ function showQuestions() {
 
     startClock();
 
-    $("#questions").append("<button id='doneBtn'> Done! </button>");
+    $("#questions").append("<button id='doneBtn' class='`btn btn-success'> Done! </button>");
     $("#doneBtn").on("click", function () {
         finalPage();
 
