@@ -17,7 +17,7 @@ var intervalId;
 
 // prevents the clock from being sped up unnecessarily
 var clockRunning = false;
-var time = 2;
+var time = 65;
 
 var correctAnswers = 0;
 var wrongAnswers = 5;
@@ -27,9 +27,13 @@ var unanswered = 5;
 $("#startBtn").on("click", function () {
     $("#startBtn").hide();
 
-    startClock();
+    showQuestions();
+
+    //originally called start clock but changed to showQuestions
+    //startClock();
 
     //add a done button. hover with border?
+    $("#questions").append("<button id='doneBtn'> Done! </button>");
 
 });
 
@@ -46,7 +50,7 @@ function count() {
 
     // Decrease time by 1 because we're counting down.
     time--;
-    console.log("time-- in count() " + time);
+    //console.log("time-- in count() " + time);
 
     if (time < 0) {
         //call finalPage() after clock has shown 0 and don't show -:01.
@@ -62,8 +66,8 @@ function count() {
     var converted = timeConverter(time);
     console.log(converted);
 
-    //Rewrite time remaining for every second
-    $("#time-remaining").text("Time remaining: " + converted);
+    //Rewrite time remaining for every second. time variable was converted variable
+    $("#time-remaining").text("Time remaining: " + time + " Seconds");
 
   
     // DONE: Use the variable we just created to show the converted time in the "display" div.
@@ -86,7 +90,17 @@ function count() {
       minutes = "0" + minutes;
     }
   
-    return minutes + ":" + seconds;
+    return seconds;
+    //if minutes are used add
+    //minutes + ":" +
+  }
+
+  function showQuestions() {
+    $("#time-remaining").text("Time remaining: " + time + " Seconds");
+    //show questions
+
+    startClock();
+
   }
 
   function finalPage() {
