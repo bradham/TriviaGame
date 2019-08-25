@@ -22,10 +22,6 @@ var time = 31;
 
 $("#startBtn").on("click", function () {
     $("#startBtn").hide();
-    var timerPtag = $("<p>");
-    timerPtag.text("Time remaining: ");
-    //timerPtag.attr(id, "time-remaining");
-    $("#questions").prepend(timerPtag);
 
     startClock();
 
@@ -52,10 +48,12 @@ function count() {
     //       and save the result in a variable.
     var converted = timeConverter(time);
     console.log(converted);
+
+    $("#time-remaining").text("Time remaining: " + converted);
+
   
     // DONE: Use the variable we just created to show the converted time in the "display" div.
-    ///////////////////////////////////
-    $("#time-remaining").append(converted);
+    //$("#time-remaining").append(converted);
   }
 
   function timeConverter(t) {
