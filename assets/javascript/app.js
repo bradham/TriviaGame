@@ -17,7 +17,7 @@ var intervalId;
 
 // prevents the clock from being sped up unnecessarily
 var clockRunning = false;
-var time = 500;
+var time = 60;
 
 var correctAnswers = 0;
 var wrongAnswers = 5;
@@ -140,7 +140,7 @@ function showQuestions() {
         
         //loop to show answers in "wrong" array (needs rafactoring to "answers" array). j+i is set to create a unique identifier for each radio button.
         for (var j = 0; j < questions[i].wrong.length; j++) {
-            $("#question-form").append("<input type='radio' name='radio-answer" + (j+i) + "' onclick='compareAnswer(this.value, " + i + ")' value=" + questions[i].wrong[j] + ">" + questions[i].wrong[j]);
+            $("#question-form").append("<input type='radio' name='radio-answer" + i + "' onclick='compareAnswer(this.value, " + i + ")' value=" + questions[i].wrong[j] + ">" + questions[i].wrong[j]);
         };
     }
 
