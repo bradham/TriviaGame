@@ -11,25 +11,23 @@
 </head>
 
 <body>
-    <!-- A backround image
-             A title
-             A Start Button
-            Radio Buttons
-             -->
 
     <div id="container">
-        <p id="title">Trivia Game!</p>
+        <div class="container">
+            <div class="row">
+                <p id="title" class="col">Trivia Game!</p>
+            </div>
+        </div>
+        <div id="screen-container" class="container">
 
-        <div id="screen-container">
+            <button id="startBtn" class="btn btn-primary row">Start!</button>
 
-            <button id="startBtn" class="btn btn-primary">Start!</button>
-
-            <div id="questions">
+            <div id="questions" class="col">
                 <p id="time-remaining"></p>
 
             </div>
 
-            <div id="final-score">
+            <div id="final-score" class="col">
                 <p id="done-message"></p>
                 <p id="correct"></p>
                 <p id="wrong"></p>

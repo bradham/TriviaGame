@@ -1,1 +1,14 @@
-/*Need more style for p tags and div boxes and background
+/*Need more style for p tags and div boxes and background*/
+* {
+    background-color: gray;
+    text-align: center;
+}
+
+#title {
+font-family: Arial, Helvetica, sans-serif;
+font: 30px;
+}
+
+#screen-container {
+text-align: center;
+}
